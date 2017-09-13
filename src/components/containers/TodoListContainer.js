@@ -22,12 +22,30 @@ ONLY HAVE LOGIC INSIDE CONTAINER COMPONENT
   3. seond arg - props passing down from component
 */
 
+const renderTodos = (todos, filter) => {
+  console.log('filter', filter)
+  switch(filter) {
+    case 'SHOW_ALL':
+      return todos;
+    case 'SHOW_ACTIVE':
+      return todos.filter(todo => {
+        return todo.completed === false
+      })
+    case 'SHOW_COMPLETED':
+      return todos.filter(todo => {
+        return todo.completed === true
+      })
+  }
+}
+
 
 /// maps state to props, choose what part of state tree you'd like, returning object
 const mapStateToProps = (state, ownprops) => {
+  console.log('current state', state)
   return {
     // mapping only todos
-    todos: state.todos,
+    todos: renderTodos(state.todos, state.visibilityFilter),
+    filter: state.visibilityFilter,
     hello: ownprops.hi
   }
 }

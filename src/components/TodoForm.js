@@ -6,7 +6,7 @@ class TodoForm extends Component {
     return (
       <form onSubmit={e => {
         e.preventDefault();
-        console.log('todo', this.refs.todo.value)
+        // console.log('todo', this.refs.todo.value)
         let val = this.refs.todo.value
         /*
           this.props.dispatch(addTodo(val)) can do this or instead use actions object
@@ -14,6 +14,7 @@ class TodoForm extends Component {
           if action was injected as function - can just call function via props
         */
         this.props.addTodo(val);
+        this.refs.todo.value = ''
       }}>
         <input ref="todo" type="text" placeholder="enter what you'd like to do" />
         <input type="submit" value="Create Todo" />
