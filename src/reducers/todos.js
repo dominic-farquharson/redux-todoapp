@@ -1,6 +1,6 @@
 // takes  current state + action - returns next state
 
-let initialState = [];
+let initialState = ['read book', 'take out trash', 'walk dog'];
 
 const todoReducer = (state = initialState , action) => { 
   // returning state based on the type of action
