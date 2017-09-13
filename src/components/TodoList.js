@@ -9,10 +9,23 @@ const TodoList = props => {
   const todos = props.todos.map((todo, i) => {
     return (
       <li 
+        style={{
+          textDecoration: todo.completed ? 'line-through' : 'none'
+        }}
         key={i}
-        onClick={() => props.removeTodo(todo.id)}
       >
-        {todo.text}
+        <h2>{todo.text}</h2>
+        <button
+          onClick={() => props.removeTodo(todo.id)}
+        >
+          Delete
+        </button>
+        <button
+          // complete or not complete
+          onClick={() => props.toggleTodo(todo.id)}
+        >
+          Toggle 
+        </button>
       </li>
     )
   });

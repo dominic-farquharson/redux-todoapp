@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import AddTodo from './AddTodo';
 import TodoList  from '../TodoList';
-import { removeTodo } from '../../actions';
+import { removeTodo, toggleTodo } from '../../actions';
 import { bindActionCreators } from 'redux';
 
 
@@ -34,7 +34,7 @@ const mapStateToProps = (state, ownprops) => {
 
 const mapDispatchToProps = (dispatch) => {
   // returning object with keys matching action creator
-  return bindActionCreators({removeTodo}, dispatch)
+  return bindActionCreators({removeTodo, toggleTodo}, dispatch)
 }
 
 // rendering presentational component - connecting component to redux store - returns new connected component
