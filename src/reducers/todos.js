@@ -20,7 +20,7 @@ const todoReducer = (state = initialState , action) => {
     case 'REMOVE_TODO':
       // return new array, excluding item that was removed
       return state.filter(todo => {
-        if(el.id !== action.id) return todo;
+        if(todo.id !== action.id) return todo;
       })
     // toggling todo completion
     case 'TOGGLE_TODO':
@@ -34,6 +34,8 @@ const todoReducer = (state = initialState , action) => {
         }
         return todo; // do nothing
       })  
+    default:
+      return state;
   }
 }
 

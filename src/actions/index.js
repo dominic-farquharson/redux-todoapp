@@ -6,6 +6,9 @@
     - plain javascript objects containing information
     - must have a type property ('string constant').
 
+  Action Creators
+    - functions that create actions
+
 
 */
 
@@ -35,5 +38,13 @@ export const toggleTodo = id => {
   return {
     type: 'TOGGLE_TODO',
     id
+  }
+}
+
+// visibility filter
+export const setVisibilityFilter = filter => {
+  return {
+    type: 'SET_VISIBLITY_FILTER',
+    filter
   }
 }
