@@ -7,7 +7,14 @@ import AddTodo from './containers/AddTodo';
 
 const TodoList = props => {
   const todos = props.todos.map((todo, i) => {
-    return <li key={i}>{todo.text}</li>
+    return (
+      <li 
+        key={i}
+        onClick={() => props.removeTodo(todo.id)}
+      >
+        {todo.text}
+      </li>
+    )
   });
 
   return (
